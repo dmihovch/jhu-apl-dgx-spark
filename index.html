@@ -358,7 +358,7 @@
         justify-content: flex-end;
       }
 
-      #s5 .split {
+      #s6 .split {
         align-items: center;
       }
 
@@ -769,6 +769,55 @@
       <span class="slide-number">4 / 25</span></section>
 
       <section class="slide" id="s5">
+        <h2>Component bandwidth sets the limits to investigate</h2>
+        <div class="body content-column">
+          <div class="stage flex-stage">
+            <svg class="diagram" viewBox="0 0 1250 520" role="img" aria-label="GB10 memory bandwidth of 273 GB per second, two PCIe 5.0 x4 host links of about 126 Gb per second each, and ConnectX-7 with two 200 Gb per second QSFP ports. All connections are bidirectional and drawn without arrowheads.">
+              <rect x="20" y="105" width="270" height="310" rx="14" fill="#31576b"/>
+              <text x="155" y="175" text-anchor="middle" fill="white" font-size="44" font-weight="700">GB10 SoC</text>
+              <text x="155" y="235" text-anchor="middle" fill="#c4d0d6" font-size="27">Unified memory</text>
+              <text x="155" y="288" text-anchor="middle" fill="#72c5df" font-size="35" font-weight="700">273 GB/s</text>
+              <text x="155" y="340" text-anchor="middle" fill="#c4d0d6" font-size="24">memory bandwidth</text>
+              <g fill="#263946" stroke="#e4b23f" stroke-width="2">
+                <rect x="330" y="135" width="230" height="105" rx="8"/>
+                <rect x="330" y="295" width="230" height="105" rx="8"/>
+              </g>
+              <path d="M290 187H330M560 187H615M290 347H330M560 347H615" fill="none" stroke="#e4b23f" stroke-width="5"/>
+              <g fill="white" text-anchor="middle">
+                <text x="445" y="176" font-size="27">PCIe 5.0 ×4</text>
+                <text x="445" y="215" font-size="28" font-weight="700">≈126 Gb/s</text>
+                <text x="445" y="336" font-size="27">PCIe 5.0 ×4</text>
+                <text x="445" y="375" font-size="28" font-weight="700">≈126 Gb/s</text>
+              </g>
+              <rect x="615" y="105" width="280" height="310" rx="14" fill="#1b4b66" stroke="#72c5df" stroke-width="3"/>
+              <text x="755" y="180" text-anchor="middle" fill="white" font-size="37" font-weight="700">ConnectX-7</text>
+              <text x="755" y="235" text-anchor="middle" fill="#c4d0d6" font-size="26">Spark NIC path</text>
+              <text x="755" y="294" text-anchor="middle" fill="#72c5df" font-size="35" font-weight="700">2 × 200 Gb/s</text>
+              <text x="755" y="345" text-anchor="middle" fill="#c4d0d6" font-size="24">external port ratings</text>
+              <g fill="#355567">
+                <rect x="985" y="130" width="245" height="120" rx="10"/>
+                <rect x="985" y="290" width="245" height="120" rx="10"/>
+              </g>
+              <path d="M895 190H985M895 350H985" stroke="#72c5df" stroke-width="5"/>
+              <g fill="white" text-anchor="middle" font-size="27">
+                <text x="1107" y="175">QSFP port 0</text>
+                <text x="1107" y="217" font-weight="700">Up to 200 Gb/s</text>
+                <text x="1107" y="335">QSFP port 1</text>
+                <text x="1107" y="377" font-weight="700">Up to 200 Gb/s</text>
+              </g>
+              <text x="625" y="474" text-anchor="middle" fill="#e4b23f" font-size="28" font-weight="700">Two host links: ≈252 Gb/s combined before transaction overhead</text>
+            </svg>
+          </div>
+          <p class="callout">Measure one interface, then all four together. Component ratings do not establish sustained application bandwidth.</p>
+          <p class="sources">Memory and port ratings: <a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/">NVIDIA Spark specifications</a> and <a href="https://docs.nvidia.com/dgx/dgx-spark/spark-clustering.html">networking guide</a>. PCIe: retained kernel report, 126.028 Gb/s per ×4 link; combined value is derived. Rates are per direction.</p>
+        </div>
+        <nav class="slide-nav" aria-label="Slide navigation">
+          <a href="#s4" aria-label="Previous slide" title="Previous slide">‹</a>
+          <a href="#s6" aria-label="Next slide" title="Next slide">›</a>
+        </nav>
+      <span class="slide-number">5 / 25</span></section>
+
+      <section class="slide" id="s6">
         <h2>Each Spark has two ports and four logical RoCEv2 devices</h2>
         <div class="body content-column">
           <div class="stage flex-stage">
@@ -817,55 +866,6 @@
             </div>
           </div>
           <p class="sources">Topology: <a href="https://docs.nvidia.com/dgx/dgx-spark/spark-clustering.html">NVIDIA ConnectX-7 networking guide</a>. Logical device numbers are schematic labels.</p>
-        </div>
-        <nav class="slide-nav" aria-label="Slide navigation">
-          <a href="#s4" aria-label="Previous slide" title="Previous slide">‹</a>
-          <a href="#s6" aria-label="Next slide" title="Next slide">›</a>
-        </nav>
-      <span class="slide-number">5 / 25</span></section>
-
-      <section class="slide" id="s6">
-        <h2>Component bandwidth sets the limits to investigate</h2>
-        <div class="body content-column">
-          <div class="stage flex-stage">
-            <svg class="diagram" viewBox="0 0 1250 520" role="img" aria-label="GB10 memory bandwidth of 273 GB per second, two PCIe 5.0 x4 host links of about 126 Gb per second each, and ConnectX-7 with two 200 Gb per second QSFP ports. All connections are bidirectional and drawn without arrowheads.">
-              <rect x="20" y="105" width="270" height="310" rx="14" fill="#31576b"/>
-              <text x="155" y="175" text-anchor="middle" fill="white" font-size="44" font-weight="700">GB10 SoC</text>
-              <text x="155" y="235" text-anchor="middle" fill="#c4d0d6" font-size="27">Unified memory</text>
-              <text x="155" y="288" text-anchor="middle" fill="#72c5df" font-size="35" font-weight="700">273 GB/s</text>
-              <text x="155" y="340" text-anchor="middle" fill="#c4d0d6" font-size="24">memory bandwidth</text>
-              <g fill="#263946" stroke="#e4b23f" stroke-width="2">
-                <rect x="330" y="135" width="230" height="105" rx="8"/>
-                <rect x="330" y="295" width="230" height="105" rx="8"/>
-              </g>
-              <path d="M290 187H330M560 187H615M290 347H330M560 347H615" fill="none" stroke="#e4b23f" stroke-width="5"/>
-              <g fill="white" text-anchor="middle">
-                <text x="445" y="176" font-size="27">PCIe 5.0 ×4</text>
-                <text x="445" y="215" font-size="28" font-weight="700">≈126 Gb/s</text>
-                <text x="445" y="336" font-size="27">PCIe 5.0 ×4</text>
-                <text x="445" y="375" font-size="28" font-weight="700">≈126 Gb/s</text>
-              </g>
-              <rect x="615" y="105" width="280" height="310" rx="14" fill="#1b4b66" stroke="#72c5df" stroke-width="3"/>
-              <text x="755" y="180" text-anchor="middle" fill="white" font-size="37" font-weight="700">ConnectX-7</text>
-              <text x="755" y="235" text-anchor="middle" fill="#c4d0d6" font-size="26">Spark NIC path</text>
-              <text x="755" y="294" text-anchor="middle" fill="#72c5df" font-size="35" font-weight="700">2 × 200 Gb/s</text>
-              <text x="755" y="345" text-anchor="middle" fill="#c4d0d6" font-size="24">external port ratings</text>
-              <g fill="#355567">
-                <rect x="985" y="130" width="245" height="120" rx="10"/>
-                <rect x="985" y="290" width="245" height="120" rx="10"/>
-              </g>
-              <path d="M895 190H985M895 350H985" stroke="#72c5df" stroke-width="5"/>
-              <g fill="white" text-anchor="middle" font-size="27">
-                <text x="1107" y="175">QSFP port 0</text>
-                <text x="1107" y="217" font-weight="700">Up to 200 Gb/s</text>
-                <text x="1107" y="335">QSFP port 1</text>
-                <text x="1107" y="377" font-weight="700">Up to 200 Gb/s</text>
-              </g>
-              <text x="625" y="474" text-anchor="middle" fill="#e4b23f" font-size="28" font-weight="700">Two host links: ≈252 Gb/s combined before transaction overhead</text>
-            </svg>
-          </div>
-          <p class="callout">Measure one interface, then all four together. Component ratings do not establish sustained application bandwidth.</p>
-          <p class="sources">Memory and port ratings: <a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/">NVIDIA Spark specifications</a> and <a href="https://docs.nvidia.com/dgx/dgx-spark/spark-clustering.html">networking guide</a>. PCIe: retained kernel report, 126.028 Gb/s per ×4 link; combined value is derived. Rates are per direction.</p>
         </div>
         <nav class="slide-nav" aria-label="Slide navigation">
           <a href="#s5" aria-label="Previous slide" title="Previous slide">‹</a>
