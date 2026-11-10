@@ -5,6 +5,6 @@ Hello! The answer to the first question is simple, I really don't like tradition
 
 
 ## Is this candidate trying to hack us?!
-NO! I want to work at APL, I certainly don't want to hack it. I am providing this GH repo link so that any concerns about the format this presentation is in can be safely quelled. I intentionally did not include __any__ Javascript in the files as to make this assertion easier to verify (although yes, HTML and CSS could still technically be malicious). If there are any issues at all, please reach out to me at `dmihovch@gmail.com`.
+NO! I want to work at APL, I certainly don't want to hack it. I am providing this GH repo link so that any concerns about the format this presentation is in can be safely quelled. I intentionally did not include __any__ Javascript in the files as to make this assertion easier to verify (although yes, HTML and CSS could still technically be malicious). If there are any issues at all, please reach out to me at `dmihovch@gmail.com`. Also, I apologize about the large file size, I embedded the images with base64 into the HTML, so there are large blobs.
 
 
